@@ -59,6 +59,7 @@ nix flake init -t github:nix-community/gomod2nix#app
 ## ec2 instance
 
 ```bash
+installation instructions: https://nixos.org/download.html
 mkdir -p ~/.config/nix/
 nano ~/.config/nix/nix.conf
 add : `experimental-features = nix-command flakes`
