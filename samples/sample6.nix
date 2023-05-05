@@ -1,7 +1,6 @@
-# nix-shell --pure sample6.nix
 let pkgs = import <nixpkgs> { };
-in pkgs.mkShell{name="some";
-                packages=[pkgs.jq pkgs.jdk11];
-                shellHook="echo hola";
-               }
-
+    pkgslinux = import <nixpkgs> { system="x86_64-linux"; };
+in pkgs.dockerTools.buildLayeredImage {
+  name = "nix_sample";
+  config = { CMD = [ "${pkgslinux.python}/bin/python" "-c" "print(\"hello\")" ]; };
+}
