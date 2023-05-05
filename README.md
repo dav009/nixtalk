@@ -10,6 +10,7 @@ nix profile install nixpkgs#cowsay
 nix run github:Xe/gohello
 which go-hello
 nix build nixpkgs#pkgsCross.XX.hello
+nix-shell --pure sample6.nix # to get a shell
 
 ## derivations
 
@@ -45,8 +46,17 @@ nix-store --gc
 nix flake show
 nix develop
 nix run .
+# templates
 nix run nixpkgs#darwin.builder
+https://github.com/LnL7/nix-docker#running-as-a-remote-builder
+docker run --restart always --name nix-docker -d -p 3022:22 lnl7/nix:ssh
 nix build .#docker
+
+# templates
+nix flake show  github:NixOS/templates
+https://github.com/NixOS/templates/tree/master/go-hello
+nix flake init -t github:NixOS/templates#go-hello
+nix flake init -t github:nix-community/gomod2nix#app
 
 # todo:
 - docker from the repl

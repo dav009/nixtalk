@@ -4,4 +4,3 @@ in pkgs.dockerTools.buildLayeredImage {
   name = "nix_sample";
   config = { CMD = [ "${pkgslinux.python}/bin/python" "-c" "print(\"hello\")" ]; };
 }
-
