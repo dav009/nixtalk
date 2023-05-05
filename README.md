@@ -6,7 +6,15 @@ nix run nixpkgs#cowsay -- hola
 nix-shell --pure -p go_1_18
 nix-shell --pure -p go_1_18 which
 nix profile install nixpkgs#cowsay
-nix run github:Xe/gohello
+nix-shell --pure -p python310 aws python310Packages.numpy
+```
+
+with flakes:
+```bash
+nix run github:dav009/nixsample 
+nix develop github:dav009/nixsample
+nix build github:dav009/nixsample
+nix build github:dav009/nixsample#docker
 ```
 
 ## derivations
@@ -49,7 +57,10 @@ nix flake init -t github:nix-community/gomod2nix#app
 ```
 
 ## ec2 instance
+
+```bash
 mkdir -p ~/.config/nix/
 nano ~/.config/nix/nix.conf
 add : `experimental-features = nix-command flakes`
 nix profile install nixpkgs#docker
+```
