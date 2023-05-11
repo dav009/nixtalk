@@ -1,5 +1,10 @@
 ## package manager
 
+This is a recorded introduction talk about Nix and its package manager. You can find the slides and samples in this repo.
+
+- Recording: https://www.youtube.com/watch?v=uj5YU74IUvI
+
+
 ```bash
 nix build nixpkgs#hello
 nix run nixpkgs#cowsay -- hola
